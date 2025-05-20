@@ -1,0 +1,9 @@
+/* STEPS */
+/* animation: drive 4s steps(4, end) infinite; */
+
+/* ON COMPONENT VIEW */
+/* animation: autoRotateAnimation both;
+animation-timeline: view(40% 30%); */
+
+/* PLAY AND PAUSE ANIMATTION */
+/* animation-play-state: paused !important; */

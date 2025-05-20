@@ -1,0 +1,65 @@
+body {
+    background-color: #242223;
+    margin: 0;
+    display: grid;
+    place-content: center;
+    height: 100dvh;
+}
+
+.list {
+    display: flex;
+    gap: 10px;
+
+    /* REQUIRED FOR Z TRANSFORMATION */
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+}
+
+img {
+    width: 200px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+img {
+    transition: .5s;
+    filter: brightness(0);
+}
+
+/* For Hovered Images */
+img:hover {
+    filter: brightness(1);
+    transform: translateZ(200px);
+}
+
+/* For Right Images */
+img:hover+* {
+    filter: brightness(0.6);
+    transform: translateZ(150px) rotateY(40deg);
+}
+
+img:hover+*+* {
+    filter: brightness(0.4);
+    transform: translateZ(70px) rotateY(20deg);
+}
+
+img:hover+*+*+* {
+    filter: brightness(0.2);
+    transform: translateZ(30px) rotateY(10deg);
+}
+
+/* For Left Images */
+img:has(+ *:hover) {
+    filter: brightness(0.6);
+    transform: translateZ(150px) rotateY(-40deg);
+}
+
+img:has(+ * + *:hover) {
+    filter: brightness(0.4);
+    transform: translateZ(70px) rotateY(-20deg);
+}
+
+img:has(+ * + * + *:hover) {
+    filter: brightness(0.2);
+    transform: translateZ(30px) rotateY(-10deg);
+}

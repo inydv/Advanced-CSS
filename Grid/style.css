@@ -1,0 +1,127 @@
+/* grid-template-rows, grid-template-columns */
+.container {
+    display: grid;
+    /* 3 rows created of 100px and 4th row created of 50px */
+    grid-template-rows: 100px 100px 100px 50px;
+    grid-template-rows: repeat(3, 100px) 50px;
+    /* 3 rows created of 100px */
+    grid-template-columns: 100px 100px 100px;
+
+    /* 
+    | | | |
+    |_|_|_| - 100px
+    | | | |
+    |_|_|_| - 100px
+    | | | |
+    |_|_|_| - 100px
+    |_|_|_| - 50px
+    */
+
+    /* Remaining space created for 4th column */
+    grid-template-columns: 100px 100px 100px 1fr;
+}
+
+/* grid-items */
+.container {
+    display: grid;
+    grid-template-rows: repeat(5, 100px);
+    grid-template-columns: repeat(5, 100px);
+
+    /* 
+    |+|+|+|+|+| - Filled
+    |+|_|_|_|_| - Only 1st Filled
+    |_|_|_|_|_|
+    |_|_|_|_|_|
+    |_|_|_|_|_|
+    */
+}
+
+/* grid-row, grid-column */
+.item-6 {
+    grid-row: 3;
+    grid-column: 4;
+
+    /* 
+    |+|+|+|+|+| - Filled
+    |_|_|_|_|_| 
+    |_|_|_|+|_| - Only 4th Filled
+    |_|_|_|_|_|
+    |_|_|_|_|_|
+    */
+
+    /* 
+    grid-column: 4 / (this position + total column); 
+    grid-column: 4 / (4 + 2);
+    grid-column: 4 / 6;
+
+    For Overlapping, we can use z-index
+    */
+    grid-column: 4 / 6;
+
+    /* 
+    |+|+|+|+|+| - Filled
+    |_|_|_|_|_| 
+    |_|_|_|+|+| - 4th & 5th Filled
+    |_|_|_|_|_|
+    |_|_|_|_|_|
+    */
+}
+
+/* grid-area */
+.item-6 {
+    /* 
+    grid-area: grid-row-begin / grid-column-begin / grid-row-end / grid-column-end;
+    */
+    grid-area: 3 / 4 / 4 / 6;
+
+    /* 
+    |+|+|+|+|+| - Filled
+    |_|_|_|_|_| 
+    |_|_|_|+|+| - 4th & 5th Filled
+    |_|_|_|_|_|
+    |_|_|_|_|_|
+    */
+}
+
+/* grid-template-areas */
+.container {
+    display: grid;
+    grid-template-rows: repeat(5, 100px);
+    grid-template-columns: repeat(5, 100px);
+    grid-template-areas:
+        "   item3   .   .   .   .   "
+        "   .   item2   .   .   .   "
+        "   .   item1   .   .   .   "
+        "   .   .   .   .   .   "
+        "   .   .   .   .   .   ";
+
+    /* 
+    Let we have only 3 item
+
+    |+|_|_|_|_| - Item3
+    |_|+|_|_|_| - Item2
+    |_|+|_|_|_| - Item1
+    |_|_|_|_|_|
+    |_|_|_|_|_|
+    */
+}
+
+.item-1 {
+    grid-area: item1;
+}
+
+.item-2 {
+    grid-area: item2;
+}
+
+.item-3 {
+    grid-area: item3;
+}
+
+/* Responsive */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    justify-content: center;
+    gap: 20px;
+}

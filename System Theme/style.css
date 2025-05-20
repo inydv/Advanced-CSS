@@ -1,0 +1,18 @@
+:root {
+    color-scheme: light dark;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: light-dark(#f5f4f0, #21242b);
+}
+
+div {
+    height: 200px;
+    width: 200px;
+    color: light-dark(#21242b, #f5f4f0);
+}

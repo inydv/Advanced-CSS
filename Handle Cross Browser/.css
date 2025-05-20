@@ -1,0 +1,9 @@
+.cart {
+    backdrop-filter: blur(30px);
+}
+
+@supports not (backdrop-filter: blur(30px)) {
+    .cart {
+        background-color: black;
+    }
+}
