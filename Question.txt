@@ -80,3 +80,11 @@ console.log(div.dataset.role);   // Outputs: admin
 The <canvas> element provides a drawable region in the document that can be used to render graphics, such as charts, games, or other visual images, on the fly via scripting (usually JavaScript).
 
 ## Tags: address, main, header, footer, article, code
+
+## difference between window.scrollY, window.innerHeight, document.body.offsetHeight
+scrollY - returns the number of pixels the document is scrolled vertically from the origin.
+innerHeight - gives the available height of the window.
+offsetHeight - provides the total height of the document, including padding but not the border, margin, or horizontal scrollbar.
+
+## getBoundingClientRect
+used to get element height and wight and positioning.
